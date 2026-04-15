@@ -67,7 +67,7 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ quote, name, car, rating }: TestimonialCardProps) {
   return (
-    <div className="rounded-xl bg-card p-6 shadow-sm border border-border/50">
+    <div className="rounded-xl bg-card p-6 shadow-sm border border-border">
       {/* Stars */}
       <div className="mb-3 flex gap-1">
         {Array.from({ length: rating }).map((_, i) => (

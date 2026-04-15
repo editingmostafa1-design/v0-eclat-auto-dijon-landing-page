@@ -9,7 +9,7 @@ const steps = [
   {
     number: "02",
     title: "Diagnostic personnalisé",
-    description: "Nous évaluons l&apos;état de votre véhicule et établissons un devis détaillé.",
+    description: "Nous évaluons l'état de votre véhicule et établissons un devis détaillé.",
   },
   {
     number: "03",

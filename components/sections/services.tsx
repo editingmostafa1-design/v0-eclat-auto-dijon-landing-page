@@ -66,7 +66,7 @@ function ServiceCard({ icon: Icon, title, description, price, link }: ServiceCar
     <div
       className={cn(
         "group flex flex-col rounded-xl bg-card p-6 shadow-sm",
-        "border border-border/50 transition-shadow hover:shadow-md"
+        "border border-border transition-shadow hover:shadow-md"
       )}
     >
       {/* Icon */}
