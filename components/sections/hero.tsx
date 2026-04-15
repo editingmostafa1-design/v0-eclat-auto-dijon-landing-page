@@ -30,9 +30,9 @@ export function Hero() {
           <div className="relative">
             <BeforeAfterSlider />
             
-            {/* Watermark */}
-            <div className="pointer-events-none absolute -bottom-8 -right-8 w-64 opacity-100">
-              <CarSilhouette color="#111210" opacity={0.06} />
+            {/* Watermark - Ghost at 3% opacity */}
+            <div className="pointer-events-none absolute -bottom-8 -right-8 w-64">
+              <CarSilhouette />
             </div>
           </div>
         </div>

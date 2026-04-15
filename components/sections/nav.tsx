@@ -77,10 +77,10 @@ export function Nav() {
             </Button>
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Blue Primary for visibility */}
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary lg:hidden"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Ouvrir le menu"
             aria-expanded={isMobileMenuOpen}
@@ -111,7 +111,7 @@ export function Nav() {
             <ConceptCLogo variant="light" />
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-surface"
+              className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Fermer le menu"
             >

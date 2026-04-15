@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-3 lg:gap-8">
           {/* Column 1: Logo & tagline */}
           <div className="flex flex-col gap-4">
-            <ConceptCLogo variant="dark" className="w-48" />
+            <ConceptCLogo variant="footer" />
             <p className="mt-2 text-base leading-relaxed text-surface/70">
               Rénovation esthétique haut de gamme pour véhicules exigeants à Dijon.
             </p>
