@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils"
 const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#comment-ca-marche", label: "Comment ça marche" },
-  { href: "#avis", label: "Avis" },
   { href: "#faq", label: "FAQ" },
 ]
 
@@ -101,10 +100,10 @@ export function Nav() {
           {/* Desktop CTA & Contact */}
           <div className="hidden items-center gap-6 md:flex">
             <a 
-              href="tel:+33600000000" 
+              href="tel:+33768627902" 
               className="text-sm font-semibold text-ink transition-colors hover:text-blue-primary font-sans"
             >
-              06 XX XX XX XX
+              07 68 62 79 02
             </a>
             <a href="#reserver">
               <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold transition-transform hover:scale-[1.02]">
@@ -177,10 +176,10 @@ export function Nav() {
               isMobileMenuOpen ? "animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500 fill-mode-both" : ""
             )}>
               <a 
-                href="tel:+33600000000" 
+                href="tel:+33768627902" 
                 className="text-lg font-medium text-surface/80 transition-colors hover:text-blue-primary font-sans"
               >
-                06 XX XX XX XX
+                07 68 62 79 02
               </a>
               <a
                 href="#reserver"

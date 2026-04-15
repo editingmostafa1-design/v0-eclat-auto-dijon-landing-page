@@ -37,13 +37,6 @@ export function Hero() {
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4 opacity-80">
               <div className="flex items-center gap-2">
-                <div className="flex text-amber-400">
-                  {"★★★★★"}
-                </div>
-                <span className="text-sm font-medium text-surface">4.9/5 Google</span>
-              </div>
-              <div className="h-4 w-px bg-surface/20 hidden sm:block" />
-              <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-surface">150+ Clients Satisfaits</span>
               </div>
               <div className="h-4 w-px bg-surface/20 hidden sm:block" />

@@ -2,7 +2,6 @@ import { Nav } from "@/components/sections/nav"
 import { Hero } from "@/components/sections/hero"
 import { Services } from "@/components/sections/services"
 import { Process } from "@/components/sections/process"
-import { SocialProof } from "@/components/sections/social-proof"
 import { Guarantees } from "@/components/sections/guarantees"
 import { FAQ } from "@/components/sections/faq"
 import { FinalCTA } from "@/components/sections/final-cta"
@@ -16,19 +15,7 @@ export default function Home() {
     "image": "https://eclatautodijon.fr/images/hero-after.png",
     "@id": "https://eclatautodijon.fr",
     "url": "https://eclatautodijon.fr",
-    "telephone": "+33600000000",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Quartier Valmy",
-      "addressLocality": "Dijon",
-      "postalCode": "21000",
-      "addressCountry": "FR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.3220,
-      "longitude": 5.0415
-    },
+    "telephone": "+33 7 68 62 79 02",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
@@ -43,8 +30,8 @@ export default function Home() {
       "closes": "19:00"
     },
     "sameAs": [
-      "https://facebook.com/eclatautodijon",
-      "https://instagram.com/eclatautodijon"
+      "https://www.tiktok.com/@eclatautodijon",
+      "https://www.instagram.com/eclatautodijon/"
     ]
   }
 
@@ -59,7 +46,6 @@ export default function Home() {
         <Hero />
         <Services />
         <Process />
-        <SocialProof />
         <Guarantees />
         <FAQ />
         <FinalCTA />
