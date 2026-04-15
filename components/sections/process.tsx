@@ -25,7 +25,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="comment-ca-marche" className="relative overflow-hidden bg-ink py-20 lg:py-24">
+    <section id="comment-ca-marche" className="relative overflow-hidden bg-ink py-24 lg:py-32">
       {/* Background watermark */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-100">
         <CarSilhouette color="#F9F8F5" opacity={0.05} />
@@ -33,7 +33,10 @@ export function Process() {
 
       <div className="relative mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
-        <div className="mb-12 text-center lg:mb-16">
+        <div className="mb-16 text-center">
+          <span className="mb-4 block text-sm font-semibold uppercase tracking-[0.15em] text-blue-primary">
+            Notre processus
+          </span>
           <h2 className="font-serif text-3xl font-semibold text-surface lg:text-4xl">
             Comment ça marche
           </h2>

@@ -124,3 +124,37 @@
 .animate-expand {
   animation: expand 200ms ease-out;
 }
+
+/* Section Divider */
+.section-divider {
+  @apply mx-auto max-w-6xl border-t border-border;
+}
+
+/* Kicker text styling */
+.kicker {
+  @apply text-sm font-semibold uppercase tracking-[0.15em] text-blue-primary;
+}
+
+/* Card hover micro-interaction */
+.card-hover {
+  @apply transition-all duration-200 ease-out;
+}
+.card-hover:hover {
+  @apply shadow-lg scale-[1.02];
+}
+
+/* Video overlay gradient */
+.video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 18, 16, 0.25) 0%,
+    rgba(17, 18, 16, 0.35) 50%,
+    rgba(249, 248, 245, 1) 100%
+  );
+}
+
+/* Blue accent dot */
+.accent-dot::before {
+  content: "";
+  @apply absolute left-0 top-0 h-full w-1 rounded-full bg-blue-primary;
+}

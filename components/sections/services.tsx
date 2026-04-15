@@ -58,10 +58,11 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="bg-surface py-20 lg:py-24">
+    <section id="services" className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
-        <div className="mb-12 text-center lg:mb-16">
+        <div className="mb-16 text-center">
+          <span className="kicker mb-4 block">Prestations</span>
           <h2 className="font-serif text-3xl font-semibold text-ink lg:text-4xl">
             Nos services
           </h2>
@@ -71,12 +72,15 @@ export function Services() {
         </div>
 
         {/* Service cards */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </div>
       </div>
+      
+      {/* Section divider */}
+      <div className="section-divider mt-24 lg:mt-32" />
     </section>
   )
 }
@@ -104,13 +108,14 @@ function ServiceCard({
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <div
         className={cn(
-          "flex flex-col rounded-xl bg-card p-6 shadow-sm",
-          "border border-border transition-shadow hover:shadow-md"
+          "flex flex-col rounded-xl bg-card p-6",
+          "border border-border shadow-sm",
+          "card-hover"
         )}
       >
-        {/* Icon */}
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-primary/10">
-          <Icon className="h-6 w-6 text-blue-primary" />
+        {/* Circular Icon Container - Blue Primary 15% opacity */}
+        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-blue-primary/[0.15]">
+          <Icon className="h-6 w-6 text-ink" />
         </div>
 
         {/* Title */}
@@ -121,19 +126,20 @@ function ServiceCard({
           {description}
         </p>
 
-        {/* Price */}
-        <div className="mt-4">
-          <p className="font-serif text-xl font-semibold text-ink">{price}</p>
-          <p className="text-sm text-muted-foreground">{priceNote}</p>
+        {/* Price - Blue Primary for information elements */}
+        <div className="mt-5 pt-4 border-t border-border">
+          <p className="font-serif text-2xl font-semibold text-blue-primary">{price}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{priceNote}</p>
         </div>
 
         {/* Trigger Button */}
         <CollapsibleTrigger asChild>
           <button
             className={cn(
-              "mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg",
-              "bg-blue-primary px-4 py-2.5 text-sm font-medium text-white",
-              "transition-colors hover:bg-blue-hover focus:outline-none focus:ring-2 focus:ring-blue-focus"
+              "mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl",
+              "bg-blue-primary px-4 py-3 text-sm font-semibold text-white",
+              "transition-all duration-200 hover:bg-blue-hover hover:scale-[1.02]",
+              "focus:outline-none focus:ring-2 focus:ring-blue-focus"
             )}
           >
             En savoir plus
@@ -146,22 +152,22 @@ function ServiceCard({
           </button>
         </CollapsibleTrigger>
 
-        {/* Collapsible Content */}
+        {/* Collapsible Content with slide & fade */}
         <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapse data-[state=open]:animate-expand">
-          <div className="mt-4 rounded-lg bg-surface p-4">
-            <p className="mb-3 text-sm font-medium text-ink">
-              Étapes du service :
+          <div className="mt-5 rounded-xl bg-surface p-5 border border-border">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-ink">
+              Étapes du service
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {steps.map((step, index) => (
                 <li
                   key={index}
-                  className="flex items-start gap-2 text-sm text-muted-foreground"
+                  className="flex items-start gap-3 text-sm text-muted-foreground"
                 >
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-primary/10 text-xs font-medium text-blue-primary">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-primary text-xs font-semibold text-white">
                     {index + 1}
                   </span>
-                  {step}
+                  <span className="pt-0.5">{step}</span>
                 </li>
               ))}
             </ul>

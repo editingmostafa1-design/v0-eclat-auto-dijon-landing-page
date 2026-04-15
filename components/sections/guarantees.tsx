@@ -23,10 +23,11 @@ const guarantees = [
 
 export function Guarantees() {
   return (
-    <section className="bg-surface py-20 lg:py-24">
+    <section className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
-        <div className="mb-12 text-center lg:mb-16">
+        <div className="mb-16 text-center">
+          <span className="kicker mb-4 block">Engagement qualité</span>
           <h2 className="font-serif text-3xl font-semibold text-ink lg:text-4xl">
             Nos garanties
           </h2>
@@ -42,9 +43,9 @@ export function Guarantees() {
               key={index}
               className="flex flex-col items-center text-center"
             >
-              {/* Icon */}
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-primary/10">
-                <guarantee.icon className="h-8 w-8 text-blue-primary" />
+              {/* Circular Icon Container - Blue Primary 15% opacity, Ink icon */}
+              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-blue-primary/[0.15]">
+                <guarantee.icon className="h-8 w-8 text-ink" />
               </div>
 
               {/* Title */}

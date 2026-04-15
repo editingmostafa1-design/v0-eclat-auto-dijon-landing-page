@@ -16,10 +16,24 @@ const navLinks = [
 export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
+      
+      // Track active section
+      const sections = navLinks.map(link => link.href.replace("#", ""))
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 100) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -45,9 +59,9 @@ export function Nav() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-200",
+          "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300",
           isScrolled
-            ? "bg-surface/95 backdrop-blur-md shadow-sm"
+            ? "bg-surface/90 backdrop-blur-md shadow-sm border-b border-border"
             : "bg-transparent"
         )}
       >
@@ -63,21 +77,35 @@ export function Nav() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[15px] font-medium text-ink transition-colors hover:text-blue-primary"
+                className={cn(
+                  "relative text-[15px] font-medium transition-colors hover:text-blue-primary py-2",
+                  activeSection === link.href.replace("#", "")
+                    ? "text-blue-primary"
+                    : "text-ink"
+                )}
               >
                 {link.label}
+                {/* Active underline indicator */}
+                <span 
+                  className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-blue-primary transition-all duration-200",
+                    activeSection === link.href.replace("#", "")
+                      ? "w-full"
+                      : "w-0"
+                  )}
+                />
               </a>
             ))}
           </nav>
 
           {/* Desktop CTA */}
           <a href="#reserver" className="hidden lg:block">
-            <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold">
+            <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold transition-transform hover:scale-[1.02]">
               Réserver
             </Button>
           </a>
 
-          {/* Mobile Menu Button - Blue Primary for visibility */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary lg:hidden"
