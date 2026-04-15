@@ -9,14 +9,33 @@ import { MapPin, Phone, Mail, Check } from "lucide-react"
 export function Footer() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [selectedService, setSelectedService] = useState("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+
+    const formData = new FormData(e.currentTarget)
+    
+    try {
+      const response = await fetch("https://formspree.io/f/meevevkz", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        alert("Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.")
+      }
+    } catch (error) {
+      alert("Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -34,60 +53,78 @@ export function Footer() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-primary/20">
                   <Check className="h-6 w-6 text-blue-primary" />
                 </div>
-                <p className="text-surface font-medium">
-                  Merci ! Nous vous recontactons sous 24h.
+                <h4 className="text-xl font-serif font-bold text-surface">Merci !</h4>
+                <p className="text-surface font-medium max-w-[250px]">
+                  Je vous rappellerai dans les 2 heures pour confirmer votre réservation.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <div className="grid grid-cols-2 gap-3">
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Nom"
-                    required
-                    className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
-                  />
-                  <Input
-                    type="tel"
-                    name="phone"
-                    placeholder="Téléphone"
-                    required
-                    className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
-                  />
-                </div>
                 <Input
                   type="text"
-                  name="vehicle"
-                  placeholder="Véhicule (ex: BMW Série 3)"
+                  name="full_name"
+                  placeholder="Nom Complet"
                   required
                   className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
                 />
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Numéro de Téléphone"
+                  required
+                  className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
+                />
+                
+                <select 
+                  name="service" 
+                  value={selectedService}
+                  onChange={(e) => setSelectedService(e.target.value)}
+                  required
+                  className="rounded-xl border border-surface/20 bg-surface/5 px-3 py-2 text-sm text-surface focus:border-blue-primary focus:outline-none focus:ring-2 focus:ring-blue-primary/25 transition-all"
+                >
+                  <option value="" disabled className="text-ink">Choisir un service</option>
+                  <option value="Intérieur Voiture" className="text-ink">Intérieur Voiture</option>
+                  <option value="Nettoyage Canapé" className="text-ink">Nettoyage Canapé</option>
+                  <option value="Nettoyage Tapis" className="text-ink">Nettoyage Tapis</option>
+                </select>
+
+                {selectedService === "Intérieur Voiture" && (
+                  <Input
+                    type="text"
+                    name="vehicle_model"
+                    placeholder="Modèle du Véhicule (ex: BMW Série 3)"
+                    required
+                    className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25 animate-in slide-in-from-top-2 duration-200"
+                  />
+                )}
+
                 <div className="grid grid-cols-2 gap-3">
                   <Input
                     type="text"
                     name="date"
-                    placeholder="Date souhaitée"
+                    placeholder="Date Souhaitée"
                     onFocus={(e) => (e.target.type = "date")}
                     onBlur={(e) => (e.target.type = "text")}
+                    required
                     className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
                   />
                   <select 
-                    name="service" 
+                    name="time_slot" 
+                    required
                     className="rounded-xl border border-surface/20 bg-surface/5 px-3 py-2 text-sm text-surface focus:border-blue-primary focus:outline-none focus:ring-2 focus:ring-blue-primary/25"
                   >
-                    <option value="" disabled selected className="text-ink">Service souhaité</option>
-                    <option value="interieur" className="text-ink">Lavage Intérieur</option>
-                    <option value="sieges" className="text-ink">Sièges & Sellerie</option>
-                    <option value="moquettes" className="text-ink">Moquettes & Tapis</option>
+                    <option value="" disabled selected className="text-ink">Créneau</option>
+                    <option value="Matin" className="text-ink">Matin</option>
+                    <option value="Après-midi" className="text-ink">Après-midi</option>
                   </select>
                 </div>
+
                 <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="mt-2 h-12 bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl font-bold transition-all active:scale-95"
                 >
-                  {isSubmitting ? "Envoi en cours..." : "Demander mon devis gratuit"}
+                  {isSubmitting ? "Envoi en cours..." : "Demander mon créneau"}
                 </Button>
               </form>
             )}
