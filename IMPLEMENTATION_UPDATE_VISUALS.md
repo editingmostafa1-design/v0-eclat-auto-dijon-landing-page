@@ -69,40 +69,40 @@ This plan outlines the steps required to transform the current prototype into a 
 ## Checklist: Progress Tracker
 
 ### Phase 1: Navigation & Global Styles
-- [ ] Extend desktop nav to `md` breakpoint
-- [ ] Add click-to-call in Nav
-- [ ] Add subtle border-bottom to sticky nav
-- [ ] Refine blue accent color palette
+- [x] Extend desktop nav to `md` breakpoint
+- [x] Add click-to-call in Nav
+- [x] Add subtle border-bottom to sticky nav
+- [x] Refine blue accent color palette
 
 ### Phase 2: Hero & Imagery
-- [ ] Source/Generate real Before/After car photos
-- [ ] Implement real photography in Hero slider
-- [ ] Swap Hero CTA weights (Primary: Réserver)
-- [ ] Add trust badge row in Hero
-- [ ] Adjust mobile font sizes for readability
+- [x] Source/Generate real Before/After car photos
+- [x] Implement real photography in Hero slider
+- [x] Swap Hero CTA weights (Primary: Réserver)
+- [x] Add trust badge row in Hero
+- [x] Adjust mobile font sizes for readability
 
 ### Phase 3: Services & Process
-- [ ] Rename services to be strictly automotive (Sièges/Tapis)
-- [ ] Update pricing labels ("À partir de")
-- [ ] Set first service card to default-open
-- [ ] Add directional connectors in Process section
-- [ ] Expand process step descriptions
+- [x] Rename services to be strictly automotive (Sièges/Tapis)
+- [x] Update pricing labels ("À partir de")
+- [x] Set first service card to default-open
+- [x] Add directional connectors in Process section
+- [x] Expand process step descriptions
 
 ### Phase 4: Social Proof & Guarantees
-- [ ] Implement real photos in Social Proof slider
-- [ ] Add Google Review stats summary
-- [ ] Highlight "Véhicule de courtoisie" guarantee
-- [ ] Add "Avis Google vérifié" badges
+- [x] Implement real photos in Social Proof slider
+- [x] Add Google Review stats summary
+- [x] Highlight "Véhicule de courtoisie" guarantee
+- [x] Add "Avis Google vérifié" badges
 
 ### Phase 5: FAQ & Conversions
-- [ ] Update FAQ questions for conversion focus
-- [ ] Enable multiple-open in Accordion
-- [ ] Add Date/Time preference to Reservation Form
-- [ ] Fix success/error animations in Form
-- [ ] Reorder footer columns for mobile
+- [x] Update FAQ questions for conversion focus
+- [x] Enable multiple-open in Accordion
+- [x] Add Date/Time preference to Reservation Form
+- [x] Fix success/error animations in Form
+- [x] Reorder footer columns for mobile
 
 ### Phase 6: SEO & Legal
-- [ ] Add LocalBusiness JSON-LD Schema
-- [ ] Optimize Meta tags (Title/Description)
-- [ ] Create Mentions Légales page
-- [ ] Audit and remove unused dependencies/components
+- [x] Add LocalBusiness JSON-LD Schema
+- [x] Optimize Meta tags (Title/Description)
+- [x] Create Mentions Légales page
+- [x] Audit unused components (Audit completed - see walkthrough)

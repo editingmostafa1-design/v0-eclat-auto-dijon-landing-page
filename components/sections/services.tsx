@@ -12,46 +12,49 @@ import {
 const services = [
   {
     icon: Sparkles,
-    title: "Nettoyage Intérieur Complet",
+    title: "Lavage Premium Intérieur",
     description:
       "Un nettoyage professionnel et minutieux de l'habitacle de votre véhicule, pour un intérieur comme neuf.",
     price: "À partir de 60€",
     priceNote: "Berline 5 places, usage quotidien",
     steps: [
       "Aspiration profonde de l'habitacle",
-      "Brossage mécanique des sols avec brosse rotative et solution active",
-      "Extraction par aspiration des résidus de brossage",
-      "Shampoing des sièges par injection/extraction haute pression",
-      "Nettoyage et soin protecteur des plastiques (finition satinée)",
+      "Brossage mécanique des sols avec brosse rotative",
+      "Extraction par aspiration des résidus",
+      "Shampoing des sièges par injection/extraction",
+      "Nettoyage et soin protecteur des plastiques",
       "Nettoyage approfondi des tapis de sol",
-      "Finition des vitres intérieures et extérieures",
-      "Nettoyage des jantes",
+      "Finition des vitres intérieures",
+      "Nettoyage des contours de portes",
     ],
   },
   {
-    icon: Sofa,
-    title: "Entretien Canapés",
+    icon: Sofa, // Using Sofa as a fallback for high-end seating
+    title: "Sièges & Sellerie",
     description:
-      "Redonnez vie à vos canapés avec notre traitement professionnel en profondeur.",
-    price: "À partir de 40€",
-    priceNote: "Canapé 3 places",
+      "Traitement en profondeur de vos sièges en tissu ou cuir pour éliminer les taches tenaces et les odeurs.",
+    price: "40€ – 90€",
+    priceNote: "Selon nombre de places et état",
     steps: [
-      "Application d'un produit spécifique aux textiles",
-      "Brossage mécanique rotatif pour déloger les taches en profondeur",
-      "Traitement final par injection/extraction pour une propreté au cœur de la fibre",
+      "Diagnostic de la matière (Tissu, Alcantara, Cuir)",
+      "Application d'un pré-détachant spécifique",
+      "Action mécanique rotative douce",
+      "Extraction des impuretés en profondeur",
+      "Soin nourrissant (si sellerie cuir)",
     ],
   },
   {
     icon: Rows3,
-    title: "Nettoyage Tapis",
+    title: "Moquettes & Tapis",
     description:
-      "Un nettoyage en profondeur pour des tapis impeccables et désinfectés.",
+      "Désinfection et nettoyage haute pression des moquettes de sol et du compartiment coffre.",
     price: "À partir de 35€",
-    priceNote: "Taille standard",
+    priceNote: "Tapis + Moquette coffre",
     steps: [
-      "Pulvérisation d'une solution nettoyante adaptée",
-      "Action mécanique par brossage rotatif",
-      "Rinçage et aspiration par injection/extraction",
+      "Retrait des tapis et aspiration industrielle",
+      "Brossage manuel des fibres",
+      "Traitement par injection/extraction",
+      "Désodorisation et séchage accéléré",
     ],
   },
 ]
@@ -62,19 +65,19 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <span className="kicker mb-4 block">Prestations</span>
-          <h2 className="font-serif text-3xl font-semibold text-ink lg:text-4xl">
-            Nos services
+          <span className="kicker mb-4 block">Expertise</span>
+          <h2 className="font-serif text-3xl font-semibold text-ink lg:text-5xl">
+            Nos services de rénovation
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Des prestations sur mesure pour sublimer votre intérieur
+            Des prestations de detailing chirurgicales pour sublimer votre véhicule
           </p>
         </div>
 
         {/* Service cards */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <ServiceCard key={index} {...service} />
+            <ServiceCard key={index} {...service} defaultOpen={index === 0} />
           ))}
         </div>
       </div>
@@ -92,6 +95,7 @@ interface ServiceCardProps {
   price: string
   priceNote: string
   steps: string[]
+  defaultOpen?: boolean
 }
 
 function ServiceCard({
@@ -101,8 +105,9 @@ function ServiceCard({
   price,
   priceNote,
   steps,
+  defaultOpen = false,
 }: ServiceCardProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(defaultOpen)
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>

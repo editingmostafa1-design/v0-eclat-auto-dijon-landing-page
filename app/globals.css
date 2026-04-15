@@ -3,18 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Éclat Auto Dijon Design Tokens */
+/* 
+ * ÉCLAT AUTO DIJON - DESIGN SYSTEM
+ * Navy (#10346E) & Studio Navy Aesthetics
+ */
+
 :root {
-  /* Brand Colors */
+  /* Core Palette */
   --surface: #F9F8F5;
   --ink: #111210;
-  --blue-primary: #1A56DB;
-  --blue-hover: #1E40AF;
-  --blue-focus: rgba(26, 86, 219, 0.25);
+  --blue-primary: #10346E;
+  --blue-hover: #0C2B5A;
+  --blue-focus: rgba(16, 52, 110, 0.25);
   --warm-gray: #D8D5CE;
   --near-black: #1A1A18;
   
-  /* Semantic Tokens */
+  /* Next.js Semantic Tokens */
   --background: #F9F8F5;
   --foreground: #111210;
   --card: #FFFFFF;
@@ -94,48 +98,33 @@
   }
 }
 
-/* Collapsible animations */
+/* 
+ * UI COMPONENT UTILITIES
+ */
+
+/* Radix Collapsible animations */
 @keyframes collapse {
-  from {
-    height: var(--radix-collapsible-content-height);
-    opacity: 1;
-  }
-  to {
-    height: 0;
-    opacity: 0;
-  }
+  from { height: var(--radix-collapsible-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
 }
 
 @keyframes expand {
-  from {
-    height: 0;
-    opacity: 0;
-  }
-  to {
-    height: var(--radix-collapsible-content-height);
-    opacity: 1;
-  }
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-collapsible-content-height); opacity: 1; }
 }
 
-.animate-collapse {
-  animation: collapse 200ms ease-out;
-}
+.animate-collapse { animation: collapse 200ms ease-out; }
+.animate-expand { animation: expand 200ms ease-out; }
 
-.animate-expand {
-  animation: expand 200ms ease-out;
-}
-
-/* Section Divider */
+/* Structural Dividers & Hierarchy */
 .section-divider {
   @apply mx-auto max-w-6xl border-t border-border;
 }
 
-/* Kicker text styling */
 .kicker {
   @apply text-sm font-semibold uppercase tracking-[0.15em] text-blue-primary;
 }
 
-/* Card hover micro-interaction */
 .card-hover {
   @apply transition-all duration-200 ease-out;
 }
@@ -143,7 +132,7 @@
   @apply shadow-lg scale-[1.02];
 }
 
-/* Video overlay gradient */
+/* Video/Background Overlays */
 .video-overlay {
   background: linear-gradient(
     to bottom,
@@ -153,8 +142,56 @@
   );
 }
 
-/* Blue accent dot */
-.accent-dot::before {
-  content: "";
-  @apply absolute left-0 top-0 h-full w-1 rounded-full bg-blue-primary;
+/* 
+ * PREMIUM VISUAL EFFECTS
+ * Midnight Studio Background & Text Shine
+ */
+
+/* Mesh Gradient Performance Animations */
+@keyframes mesh-drift-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10%, 15%) scale(1.1); }
+  66% { transform: translate(-15%, 10%) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes mesh-drift-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-12%, -10%) scale(0.9); }
+  66% { transform: translate(15%, -15%) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes mesh-drift-3 {
+  0% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(5%, -5%) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1.1); }
+}
+
+.animate-mesh-1 { animation: mesh-drift-1 25s ease-in-out infinite; }
+.animate-mesh-2 { animation: mesh-drift-2 35s ease-in-out infinite; }
+.animate-mesh-3 { animation: mesh-drift-3 30s ease-in-out infinite; }
+
+/* Metallic Text Shine */
+@keyframes text-shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shine {
+  background: linear-gradient(
+    to right,
+    #F9F8F5 0%,
+    #F9F8F5 25%,
+    #60A5FA 50%,
+    #F9F8F5 75%,
+    #F9F8F5 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-shine 4s linear infinite;
+  display: inline-block;
+  font-weight: 700;
 }

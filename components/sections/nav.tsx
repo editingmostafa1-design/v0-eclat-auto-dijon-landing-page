@@ -59,20 +59,20 @@ export function Nav() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300 border-b",
           isScrolled
-            ? "bg-surface/90 backdrop-blur-md shadow-sm border-b border-border"
-            : "bg-transparent"
+            ? "bg-surface/90 backdrop-blur-md shadow-sm border-border"
+            : "bg-surface/50 backdrop-blur-sm border-border/10"
         )}
       >
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 lg:px-6">
+        <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 md:px-6">
           {/* Logo */}
           <a href="#" className="shrink-0" aria-label="Éclat Auto Dijon - Accueil">
             <ConceptCLogo variant="nav" />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 lg:flex" aria-label="Navigation principale">
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -98,17 +98,25 @@ export function Nav() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <a href="#reserver" className="hidden lg:block">
-            <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold transition-transform hover:scale-[1.02]">
-              Réserver
-            </Button>
-          </a>
+          {/* Desktop CTA & Contact */}
+          <div className="hidden items-center gap-6 md:flex">
+            <a 
+              href="tel:+33600000000" 
+              className="text-sm font-semibold text-ink transition-colors hover:text-blue-primary font-sans"
+            >
+              06 XX XX XX XX
+            </a>
+            <a href="#reserver">
+              <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold transition-transform hover:scale-[1.02]">
+                Réserver
+              </Button>
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary md:hidden"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Ouvrir le menu"
             aria-expanded={isMobileMenuOpen}
@@ -121,7 +129,7 @@ export function Nav() {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-[100] bg-ink transition-all duration-200 lg:hidden",
+          "fixed inset-0 z-[100] bg-ink transition-all duration-200 md:hidden",
           isMobileMenuOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible"
@@ -130,8 +138,8 @@ export function Nav() {
       >
         <div
           className={cn(
-            "flex h-full flex-col transition-transform duration-200",
-            isMobileMenuOpen ? "translate-y-0" : "-translate-y-4"
+            "flex h-full flex-col transition-transform duration-300 ease-out",
+            isMobileMenuOpen ? "translate-y-0" : "translate-y-full"
           )}
         >
           {/* Mobile Header */}
@@ -148,26 +156,42 @@ export function Nav() {
           </div>
 
           {/* Mobile Nav Links */}
-          <nav className="flex flex-1 flex-col items-center justify-center gap-8" aria-label="Navigation mobile">
-            {navLinks.map((link) => (
+          <nav className="flex flex-1 flex-col items-center justify-center gap-6 px-6 text-center" aria-label="Navigation mobile">
+            {navLinks.map((link, i) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={handleNavClick}
-                className="font-serif text-2xl font-semibold text-surface transition-colors hover:text-blue-primary"
+                className={cn(
+                  "group flex flex-col items-center gap-1 font-serif text-3xl font-semibold text-surface transition-all active:scale-95",
+                  isMobileMenuOpen ? "animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both" : ""
+                )}
+                style={{ animationDelay: `${i * 100}ms` }}
               >
-                {link.label}
+                <span className="text-blue-primary/40 text-sm font-sans tracking-widest uppercase">0{i + 1}</span>
+                <span className="group-hover:text-blue-primary">{link.label}</span>
               </a>
             ))}
-            <a
-              href="#reserver"
-              onClick={handleNavClick}
-              className="mt-4"
-            >
-              <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-8 py-6 text-lg font-semibold">
-                Réserver
-              </Button>
-            </a>
+            <div className={cn(
+              "mt-8 flex flex-col items-center gap-6 w-full max-w-xs",
+              isMobileMenuOpen ? "animate-in fade-in slide-in-from-bottom-4 delay-500 duration-500 fill-mode-both" : ""
+            )}>
+              <a 
+                href="tel:+33600000000" 
+                className="text-lg font-medium text-surface/80 transition-colors hover:text-blue-primary font-sans"
+              >
+                06 XX XX XX XX
+              </a>
+              <a
+                href="#reserver"
+                onClick={handleNavClick}
+                className="w-full"
+              >
+                <Button className="w-full bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl py-7 text-xl font-bold shadow-lg shadow-blue-primary/20">
+                  Réserver en ligne
+                </Button>
+              </a>
+            </div>
           </nav>
         </div>
       </div>

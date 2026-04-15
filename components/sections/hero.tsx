@@ -1,33 +1,11 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider"
-import { CarSilhouette } from "@/components/logo/car-silhouette"
+import { DynamicHeroBackground } from "./dynamic-hero-background"
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden pt-[68px]">
-      {/* Video Background Placeholder */}
-      <div className="absolute inset-0 bg-near-black">
-        {/* Video placeholder - replace with actual video */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-br from-near-black via-ink to-near-black"
-          aria-hidden="true"
-        >
-          {/* Animated grain texture for premium feel */}
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }} />
-          
-          {/* Large watermark car silhouette */}
-          <div className="absolute right-[-10%] top-1/2 w-[800px] -translate-y-1/2 opacity-[0.04]">
-            <CarSilhouette color="#F9F8F5" />
-          </div>
-        </div>
-        
-        {/* Gradient overlay for text legibility + fade to surface */}
-        <div className="video-overlay absolute inset-0" />
-      </div>
+      <DynamicHeroBackground />
 
       {/* Content */}
       <div className="relative mx-auto max-w-6xl px-4 py-20 lg:px-6 lg:py-32">
@@ -35,31 +13,52 @@ export function Hero() {
           {/* Text content */}
           <div className="flex flex-col gap-6">
             <span className="kicker">Dijon &middot; Depuis 2020</span>
-            <h1 className="font-serif text-4xl font-semibold leading-tight text-surface lg:text-5xl xl:text-6xl">
+            <h1 className="font-serif text-4xl font-semibold leading-tight text-surface sm:text-5xl lg:text-6xl">
               <span className="text-balance">
-                {"L'éclat d'une voiture neuve, sans compromis."}
+                {"L'"}<span className="text-shine">éclat</span>{" d'une voiture neuve, sans compromis."}
               </span>
             </h1>
-            <p className="text-lg leading-relaxed text-surface/80">
+            <p className="text-lg leading-relaxed text-surface/80 sm:text-xl">
               {"Rénovation esthétique haut de gamme pour véhicules exigeants — à Dijon."}
             </p>
-            <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-              <a href="#services">
-                <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-8 py-6 text-base font-semibold transition-transform hover:scale-[1.02]">
-                  Découvrir nos services
-                </Button>
-              </a>
+            <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center">
               <a href="#reserver">
-                <Button variant="outline" className="rounded-xl border-surface/30 bg-transparent px-8 py-6 text-base font-semibold text-surface hover:bg-surface/10 hover:text-surface">
+                <Button className="w-full bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-8 py-7 text-lg font-bold transition-all hover:scale-[1.03] shadow-lg shadow-blue-primary/20 sm:w-auto">
                   Réserver
                 </Button>
               </a>
+              <a href="#services">
+                <Button variant="outline" className="w-full rounded-xl border-surface/30 bg-transparent px-8 py-7 text-lg font-semibold text-surface hover:bg-surface/10 hover:text-surface sm:w-auto">
+                  Découvrir nos services
+                </Button>
+              </a>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4 opacity-80">
+              <div className="flex items-center gap-2">
+                <div className="flex text-amber-400">
+                  {"★★★★★"}
+                </div>
+                <span className="text-sm font-medium text-surface">4.9/5 Google</span>
+              </div>
+              <div className="h-4 w-px bg-surface/20 hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-surface">150+ Clients Satisfaits</span>
+              </div>
+              <div className="h-4 w-px bg-surface/20 hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-surface">Dijon - 21000</span>
+              </div>
             </div>
           </div>
 
-          {/* Before/After visual */}
           <div className="relative">
-            <BeforeAfterSlider className="rounded-xl shadow-2xl" />
+            <BeforeAfterSlider 
+              beforeImage="/hero-before.jpg"
+              afterImage="/hero-after.jpg"
+              className="rounded-xl shadow-2xl" 
+            />
           </div>
         </div>
       </div>

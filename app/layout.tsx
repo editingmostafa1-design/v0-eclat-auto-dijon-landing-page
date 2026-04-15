@@ -18,25 +18,30 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Éclat Auto Dijon | Rénovation esthétique automobile haut de gamme',
-  description: 'Rénovation esthétique haut de gamme pour véhicules exigeants à Dijon. Lavage premium, correction carrosserie, traitement céramique.',
+  title: 'Éclat Auto Dijon | Detailing & Rénovation Esthétique Automobile',
+  description: 'Expert en detailing à Dijon. Rénovation carrosserie, lavage premium intérieur, traitement céramique et protection longue durée pour véhicules d\'exception.',
+  keywords: ['detailing dijon', 'nettoyage voiture dijon', 'rénovation esthétique automobile', 'traitement céramique dijon', 'lavage auto premium'],
+  authors: [{ name: 'Éclat Auto Dijon' }],
+  openGraph: {
+    title: 'Éclat Auto Dijon | Rénovation Esthétique Automobile',
+    description: 'Redonnez à votre véhicule son éclat d\'origine avec nos services de detailing à Dijon.',
+    url: 'https://eclatautodijon.fr',
+    siteName: 'Éclat Auto Dijon',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   generator: 'v0.app',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
   },
 }
 

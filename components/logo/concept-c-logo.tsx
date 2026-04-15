@@ -43,7 +43,7 @@ export function ConceptCLogo({ variant = "nav", className }: ConceptCLogoProps) 
         </g>
         
         {/* Blue accent dot - centered above roofline */}
-        <circle cx="18" cy="12" r="2.5" fill="#1A56DB" />
+        <circle cx="18" cy="12" r="2.5" fill="#10346E" />
         
         {/* Primary Text: ÉCLAT AUTO */}
         <text
@@ -65,7 +65,7 @@ export function ConceptCLogo({ variant = "nav", className }: ConceptCLogoProps) 
           style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}
           fontSize="10"
           fontWeight="500"
-          fill="#1A56DB"
+          fill="#10346E"
           letterSpacing="4"
         >
           DIJON
@@ -104,7 +104,7 @@ export function ConceptCLogo({ variant = "nav", className }: ConceptCLogoProps) 
         </g>
         
         {/* Blue accent dot above É */}
-        <circle cx="36" cy="8" r="3" fill="#1A56DB" />
+        <circle cx="36" cy="8" r="3" fill="#10346E" />
         
         {/* ÉCLAT wordmark */}
         <text
@@ -127,7 +127,7 @@ export function ConceptCLogo({ variant = "nav", className }: ConceptCLogoProps) 
           style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}
           fontSize="9"
           fontWeight="500"
-          fill="#1A56DB"
+          fill="#10346E"
           textAnchor="middle"
           letterSpacing="3"
         >
@@ -168,7 +168,7 @@ export function ConceptCLogo({ variant = "nav", className }: ConceptCLogoProps) 
         </g>
         
         {/* Blue accent dot */}
-        <circle cx="18" cy="12" r="2.5" fill="#1A56DB" />
+        <circle cx="18" cy="12" r="2.5" fill="#10346E" />
         
         {/* Text */}
         <text
@@ -188,7 +188,7 @@ export function ConceptCLogo({ variant = "nav", className }: ConceptCLogoProps) 
           style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}
           fontSize="10"
           fontWeight="500"
-          fill="#1A56DB"
+          fill="#10346E"
           letterSpacing="4"
         >
           DIJON
