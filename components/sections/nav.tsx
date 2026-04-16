@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ConceptCLogo } from "@/components/logo/concept-c-logo"
+import { EclatLogo } from "@/components/logo/concept-c-logo"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#comment-ca-marche", label: "Comment ça marche" },
+  { href: "#pourquoi-nous", label: "Pourquoi nous" },
   { href: "#faq", label: "FAQ" },
 ]
 
@@ -60,14 +61,14 @@ export function Nav() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300 border-b",
           isScrolled
-            ? "bg-surface/90 backdrop-blur-md shadow-sm border-border"
-            : "bg-surface/50 backdrop-blur-sm border-border/10"
+            ? "bg-ink/95 backdrop-blur-md shadow-md border-white/10"
+            : "bg-transparent border-transparent"
         )}
       >
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 md:px-6">
           {/* Logo */}
-          <a href="#" className="shrink-0" aria-label="Éclat Auto Dijon - Accueil">
-            <ConceptCLogo variant="nav" />
+          <a href="#" className="flex items-center shrink-0" aria-label="Éclat Auto Dijon - Accueil">
+            <EclatLogo />
           </a>
 
           {/* Desktop Navigation */}
@@ -80,7 +81,7 @@ export function Nav() {
                   "relative text-[15px] font-medium transition-colors hover:text-blue-primary py-2",
                   activeSection === link.href.replace("#", "")
                     ? "text-blue-primary"
-                    : "text-ink"
+                    : "text-surface"
                 )}
               >
                 {link.label}
@@ -101,7 +102,7 @@ export function Nav() {
           <div className="hidden items-center gap-6 md:flex">
             <a 
               href="tel:+33768627902" 
-              className="text-sm font-semibold text-ink transition-colors hover:text-blue-primary font-sans"
+              className="text-sm font-semibold text-surface transition-colors hover:text-blue-primary font-sans"
             >
               07 68 62 79 02
             </a>
@@ -143,7 +144,7 @@ export function Nav() {
         >
           {/* Mobile Header */}
           <div className="flex h-[68px] items-center justify-between px-4">
-            <ConceptCLogo variant="light" />
+            <ConceptCLogo variant="nav" className="text-surface" />
             <button
               type="button"
               className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary"

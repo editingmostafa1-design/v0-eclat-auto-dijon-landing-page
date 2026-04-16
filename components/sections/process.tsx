@@ -3,23 +3,23 @@ import { CarSilhouette } from "@/components/logo/car-silhouette"
 const steps = [
   {
     number: "01",
-    title: "Prise de rendez-vous",
-    description: "Réservez en 1 minute via notre formulaire ou par téléphone. Réponse garantie sous 24h.",
+    title: "Réservez en 1 clic",
+    description: "Choisissez votre service, votre créneau, et votre adresse. Confirmation sous 2h, sans engagement.",
   },
   {
     number: "02",
-    title: "Diagnostic personnalisé",
-    description: "Nous évaluons l'état réel de votre véhicule pour ajuster nos techniques à vos besoins.",
+    title: "On se déplace chez vous",
+    description: "Nous arrivons à l'heure convenue, équipés et autonomes. Pas besoin de vous déplacer.",
   },
   {
     number: "03",
-    title: "Rénovation experte",
-    description: "Nos techniciens utilisent des produits certifiés et un équipement professionnel de pointe.",
+    title: "Protocole en 8 étapes",
+    description: "Brossage mécanique, injection/extraction, traitement des vitres et finitions — rien n'est laissé au hasard.",
   },
   {
     number: "04",
-    title: "Livraison & suivi",
-    description: "Récupérez votre véhicule étincelant. Nous restons disponibles pour vos conseils d'entretien.",
+    title: "Inspection avec vous",
+    description: "Nous inspectons ensemble chaque recoin avant de partir. Votre accord, c'est notre signature.",
   },
 ]
 
@@ -34,12 +34,12 @@ export function Process() {
       <div className="relative mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
         <div className="mb-20 text-center">
-          <span className="kicker mb-4 block">Votre expérience</span>
+          <span className="kicker mb-4 block">Simple &amp; transparent</span>
           <h2 className="font-serif text-3xl font-semibold text-surface lg:text-5xl">
             Comment ça marche
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-surface/70">
-            Un accompagnement rigoureux de la réservation à la route
+            De la réservation à l&apos;inspection finale — tout se passe chez vous
           </p>
         </div>
 

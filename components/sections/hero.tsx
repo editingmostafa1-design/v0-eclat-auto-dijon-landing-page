@@ -12,7 +12,7 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Text content */}
           <div className="flex flex-col gap-6">
-            <span className="kicker">Dijon &middot; Depuis 2020</span>
+            <span className="kicker">Votre voiture, sans vous déplacer</span>
             <h1 className="font-serif text-4xl font-semibold leading-tight text-surface sm:text-5xl lg:text-6xl">
               <span className="text-balance">
                 {"L'"}<span className="text-shine">éclat</span>{" d'une voiture neuve, sans compromis."}
@@ -37,11 +37,11 @@ export function Hero() {
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-4 opacity-80">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-surface">150+ Clients Satisfaits</span>
+                <span className="text-sm font-medium text-surface">On se déplace chez vous</span>
               </div>
               <div className="h-4 w-px bg-surface/20 hidden sm:block" />
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-surface">Dijon - 21000</span>
+                <span className="text-sm font-medium text-surface">Dijon et alentours</span>
               </div>
             </div>
           </div>

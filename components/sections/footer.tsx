@@ -111,9 +111,10 @@ export function Footer() {
                   <select 
                     name="time_slot" 
                     required
+                    defaultValue=""
                     className="rounded-xl border border-surface/20 bg-surface/5 px-3 py-2 text-sm text-surface focus:border-blue-primary focus:outline-none focus:ring-2 focus:ring-blue-primary/25"
                   >
-                    <option value="" disabled selected className="text-ink">Créneau</option>
+                    <option value="" disabled className="text-ink">Créneau</option>
                     <option value="Matin" className="text-ink">Matin</option>
                     <option value="Après-midi" className="text-ink">Après-midi</option>
                   </select>
@@ -165,7 +166,7 @@ export function Footer() {
                 </div>
               </a>
               <a
-                href="mailto:contact@eclatautodijon.fr"
+                href="mailto:eclatautodijon@gmail.com"
                 className="group flex items-center gap-4 text-surface/70 transition-colors hover:text-surface"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface/5 group-hover:bg-blue-primary/20 transition-colors">
@@ -173,7 +174,7 @@ export function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs uppercase tracking-widest text-surface/40">Écrivez-nous</span>
-                  <span className="font-medium">contact@eclatautodijon.fr</span>
+                  <span className="font-medium">eclatautodijon@gmail.com</span>
                 </div>
               </a>
             </div>
@@ -181,7 +182,7 @@ export function Footer() {
 
           {/* Column 3 (Mobile Order: 3) - Logo & Branding */}
           <div className="order-3 flex flex-col gap-6 lg:order-1">
-            <ConceptCLogo variant="footer" />
+            <ConceptCLogo variant="footer" className="text-surface" />
             <p className="max-w-xs text-base leading-relaxed text-surface/60">
               L&apos;excellence du detailing automobile à Dijon. Redonner à votre véhicule son prestige originel.
             </p>

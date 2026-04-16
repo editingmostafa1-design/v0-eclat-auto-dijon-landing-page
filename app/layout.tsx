@@ -41,7 +41,20 @@ export const metadata: Metadata = {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
+      {
+        url: '/icon-512.svg',
+        type: 'image/svg+xml',
+        sizes: '512x512',
+      },
     ],
+    apple: [
+      {
+        url: '/icon-512.svg',
+        type: 'image/svg+xml',
+        sizes: '512x512',
+      },
+    ],
+    shortcut: '/icon.svg',
   },
 }
 
@@ -57,8 +70,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${lora.variable} ${plusJakarta.variable} bg-background`}>
-      <body className="font-sans antialiased">
+    <html lang="fr" suppressHydrationWarning className={`${lora.variable} ${plusJakarta.variable} bg-background`}>
+      <body suppressHydrationWarning className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

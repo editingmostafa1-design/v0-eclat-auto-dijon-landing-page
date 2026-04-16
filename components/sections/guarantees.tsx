@@ -1,40 +1,33 @@
-import { Award, ShieldCheck, Car } from "lucide-react"
+import { Leaf, Search, ShieldCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const guarantees = [
   {
-    icon: Award,
-    title: "Produits certifiés",
+    icon: Search,
+    title: "Protocole en 8 étapes",
     description:
-      "Formules biodégradables et cires haut de gamme protégeant durablement votre vernis.",
+      "Un nettoyage profond incluant brossage mécanique, injection/extraction des sièges et finitions des vitres.",
     highlight: false,
   },
   {
-    icon: Car,
-    title: "Mobilité garantie",
+    icon: Leaf,
+    title: "Produits Éco-Responsables",
     description:
-      "Pour les prestations de plus de 4h, nous mettons gratuitement un véhicule de courtoisie à votre disposition.",
+      "Sélection rigoureuse de formules biodégradables pour protéger votre santé et les matériaux de votre véhicule.",
     highlight: true,
   },
   {
     icon: ShieldCheck,
-    title: "Satisfaction 30 jours",
+    title: "Engagement Qualité",
     description:
-      "Votre satisfaction est absolue. Si un détail nous a échappé, nous reprenons le véhicule sans frais.",
-    highlight: false,
-  },
-  {
-    icon: ShieldCheck, // Using ShieldCheck as a placeholder for technical precision
-    title: "Expertise locale",
-    description:
-      "Une équipe passionnée, formée aux dernières techniques de detailing esthétique à Dijon.",
+      "Pas de certificats cachés, juste de la passion. Nous inspectons chaque recoin avec vous pour une satisfaction totale.",
     highlight: false,
   },
 ]
 
 export function Guarantees() {
   return (
-    <section className="bg-surface py-24 lg:py-32">
+    <section id="pourquoi-nous" className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
         <div className="mb-20 text-center">
@@ -47,15 +40,15 @@ export function Guarantees() {
           </p>
         </div>
 
-        {/* Guarantees grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Guarantees grid — 3 cards */}
+        <div className="grid gap-6 sm:grid-cols-3">
           {guarantees.map((guarantee, index) => (
             <div
               key={index}
               className={cn(
                 "group relative flex flex-col items-center rounded-2xl p-8 text-center transition-all duration-300",
-                guarantee.highlight 
-                  ? "bg-blue-primary text-surface shadow-xl shadow-blue-primary/30 scale-105 z-10" 
+                guarantee.highlight
+                  ? "bg-blue-primary text-surface shadow-xl shadow-blue-primary/30 scale-105 z-10"
                   : "bg-card border border-border hover:border-blue-primary/30 hover:shadow-lg"
               )}
             >
@@ -80,7 +73,7 @@ export function Guarantees() {
 
               {/* Description */}
               <p className={cn(
-                "text-sm leading-relaxed",
+                "flex-1 text-sm leading-relaxed",
                 guarantee.highlight ? "text-surface/90" : "text-muted-foreground"
               )}>
                 {guarantee.description}
