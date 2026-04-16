@@ -1,22 +1,37 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { CarSilhouette } from "@/components/logo/car-silhouette"
-import { cn } from "@/lib/utils"
 
 export function DynamicHeroBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const rafIdRef = useRef<number | null>(null)
+  const latestRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
+    const finePointer = window.matchMedia?.("(pointer: fine)")?.matches ?? false
+    if (!finePointer) return
+
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalize position to -1 to 1
-      const x = (e.clientX / window.innerWidth) * 2 - 1
-      const y = (e.clientY / window.innerHeight) * 2 - 1
-      setMousePosition({ x, y })
+      // Normalize position to -1..1 and batch updates to one per frame.
+      latestRef.current = {
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: (e.clientY / window.innerHeight) * 2 - 1,
+      }
+
+      if (rafIdRef.current != null) return
+      rafIdRef.current = window.requestAnimationFrame(() => {
+        rafIdRef.current = null
+        setMousePosition(latestRef.current)
+      })
     }
 
     window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      if (rafIdRef.current != null) window.cancelAnimationFrame(rafIdRef.current)
+      rafIdRef.current = null
+    }
   }, [])
 
   return (

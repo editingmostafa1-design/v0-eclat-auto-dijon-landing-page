@@ -11,6 +11,8 @@ interface BeforeAfterSliderProps {
   beforeLabel?: string
   afterLabel?: string
   aspectRatio?: string
+  priorityAfter?: boolean
+  priorityBefore?: boolean
 }
 
 export function BeforeAfterSlider({
@@ -20,6 +22,8 @@ export function BeforeAfterSlider({
   beforeLabel = "AVANT",
   afterLabel = "APRÈS",
   aspectRatio = "aspect-square",
+  priorityAfter = false,
+  priorityBefore = false,
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
@@ -68,7 +72,7 @@ export function BeforeAfterSlider({
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
-          priority
+          priority={priorityAfter}
         />
         <span className="absolute bottom-4 right-4 z-10 rounded-full bg-ink/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-surface backdrop-blur-sm">
           {afterLabel}
@@ -86,7 +90,7 @@ export function BeforeAfterSlider({
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
-          priority
+          priority={priorityBefore}
         />
         <span className="absolute bottom-4 left-4 z-10 rounded-full bg-surface/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink backdrop-blur-sm">
           {beforeLabel}

@@ -8,6 +8,9 @@ import { FinalCTA } from "@/components/sections/final-cta"
 import { Footer } from "@/components/sections/footer"
 import { StickyCTA } from "@/components/ui/sticky-cta"
 
+export const dynamic = "force-static"
+export const revalidate = false
+
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
