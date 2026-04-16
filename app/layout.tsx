@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Lora, Plus_Jakarta_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 const lora = Lora({ 
@@ -74,6 +75,7 @@ export default function RootLayout({
       <body suppressHydrationWarning className="font-sans antialiased">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
