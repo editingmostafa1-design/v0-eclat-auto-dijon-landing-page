@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { EclatLogo } from "@/components/logo/concept-c-logo"
@@ -71,9 +72,20 @@ export function Nav() {
         )}
       >
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 md:px-6">
-          {/* Logo */}
+          {/* Logo with Live Glow */}
           <a href="#" className="flex items-center shrink-0" aria-label="Éclat Auto Dijon - Accueil">
-            <EclatLogo />
+            <motion.div
+              animate={{ 
+                filter: [
+                  "drop-shadow(0 0 2px rgba(26, 86, 219, 0))",
+                  "drop-shadow(0 0 8px rgba(26, 86, 219, 0.4))",
+                  "drop-shadow(0 0 2px rgba(26, 86, 219, 0))"
+                ] 
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <EclatLogo />
+            </motion.div>
           </a>
 
           {/* Desktop Navigation */}
@@ -113,9 +125,21 @@ export function Nav() {
               07 68 62 79 02
             </a>
             <a href="#reserver">
-              <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold transition-transform hover:scale-[1.02]">
-                Réserver
-              </Button>
+              <motion.div
+                animate={{ 
+                  boxShadow: [
+                    "0 0 5px rgba(26, 86, 219, 0.3)",
+                    "0 0 20px rgba(26, 86, 219, 0.6)",
+                    "0 0 5px rgba(26, 86, 219, 0.3)"
+                  ] 
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="rounded-xl"
+              >
+                <Button className="bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-6 font-semibold transition-transform hover:scale-[1.02]">
+                  Réserver
+                </Button>
+              </motion.div>
             </a>
           </div>
 
@@ -193,9 +217,21 @@ export function Nav() {
                 onClick={handleNavClick}
                 className="w-full"
               >
-                <Button className="w-full bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl py-7 text-xl font-bold shadow-lg shadow-blue-primary/20">
-                  Réserver en ligne
-                </Button>
+                <motion.div
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 10px rgba(26, 86, 219, 0.4)",
+                      "0 0 30px rgba(26, 86, 219, 0.7)",
+                      "0 0 10px rgba(26, 86, 219, 0.4)"
+                    ] 
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="rounded-xl w-full"
+                >
+                  <Button className="w-full bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl py-7 text-xl font-bold">
+                    Réserver en ligne
+                  </Button>
+                </motion.div>
               </a>
             </div>
           </nav>

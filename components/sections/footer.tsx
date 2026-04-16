@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { motion, useAnimation } from "framer-motion"
 import { EclatLogo } from "@/components/logo/concept-c-logo"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,16 +11,26 @@ export function Footer() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedService, setSelectedService] = useState("")
+  const controls = useAnimation()
 
   useEffect(() => {
     const handleSelect = (e: any) => {
       if (e.detail) {
         setSelectedService(e.detail)
+        // Trigger spotlight pulse
+        controls.start({
+          boxShadow: [
+            "0 0 0px 0px rgba(26, 86, 219, 0)",
+            "0 0 30px 10px rgba(26, 86, 219, 0.4)",
+            "0 0 0px 0px rgba(26, 86, 219, 0)"
+          ],
+          transition: { duration: 0.8, times: [0, 0.5, 1] }
+        })
       }
     }
     window.addEventListener('select-service', handleSelect)
     return () => window.removeEventListener('select-service', handleSelect)
-  }, [])
+  }, [controls])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -59,7 +70,11 @@ export function Footer() {
             </h3>
 
             {isSubmitted ? (
-              <div className="flex flex-col items-center justify-center gap-3 rounded-xl bg-surface/10 p-6 text-center animate-in fade-in zoom-in duration-300">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center justify-center gap-3 rounded-xl bg-surface/10 p-6 text-center"
+              >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-primary/20">
                   <Check className="h-6 w-6 text-blue-primary" />
                 </div>
@@ -67,12 +82,13 @@ export function Footer() {
                 <p className="text-surface font-medium max-w-[250px]">
                   Je vous rappellerai dans les 2 heures pour confirmer votre réservation.
                 </p>
-              </div>
+              </motion.div>
             ) : (
-              <form 
+              <motion.form 
                 id="reserver-form"
+                animate={controls}
                 onSubmit={handleSubmit} 
-                className="flex flex-col gap-3 scroll-mt-32"
+                className="flex flex-col gap-3 scroll-mt-32 rounded-2xl p-1"
               >
                 <Input
                   type="text"
@@ -103,13 +119,19 @@ export function Footer() {
                 </select>
 
                 {selectedService === "Intérieur Voiture" && (
-                  <Input
-                    type="text"
-                    name="vehicle_model"
-                    placeholder="Modèle du Véhicule (ex: BMW Série 3)"
-                    required
-                    className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25 animate-in slide-in-from-top-2 duration-200"
-                  />
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    className="overflow-hidden"
+                  >
+                    <Input
+                      type="text"
+                      name="vehicle_model"
+                      placeholder="Modèle du Véhicule (ex: BMW Série 3)"
+                      required
+                      className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
+                    />
+                  </motion.div>
                 )}
 
                 <div className="grid grid-cols-2 gap-3">
@@ -141,7 +163,7 @@ export function Footer() {
                 >
                   {isSubmitting ? "Envoi en cours..." : "Demander mon créneau"}
                 </Button>
-              </form>
+              </motion.form>
             )}
           </div>
 

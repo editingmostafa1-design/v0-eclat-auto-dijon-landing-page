@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider"
 import { DynamicHeroBackground } from "./dynamic-hero-background"
@@ -23,9 +26,26 @@ export function Hero() {
             </p>
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center">
               <a href="#reserver">
-                <Button className="w-full bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-8 py-7 text-lg font-bold transition-all hover:scale-[1.03] shadow-lg shadow-blue-primary/20 sm:w-auto">
-                  Réserver
-                </Button>
+                <motion.div
+                  initial={{ boxShadow: "0 0 10px rgba(26, 86, 219, 0.3)" }}
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 10px rgba(26, 86, 219, 0.4)",
+                      "0 0 30px rgba(26, 86, 219, 0.7)",
+                      "0 0 10px rgba(26, 86, 219, 0.4)"
+                    ] 
+                  }}
+                  transition={{ 
+                    duration: 2.5, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="rounded-xl"
+                >
+                  <Button className="w-full bg-blue-primary text-primary-foreground hover:bg-blue-hover rounded-xl px-8 py-7 text-lg font-bold transition-all hover:scale-[1.03] sm:w-auto">
+                    Réserver
+                  </Button>
+                </motion.div>
               </a>
               <a href="#services">
                 <Button variant="outline" className="w-full rounded-xl border-surface/30 bg-transparent px-8 py-7 text-lg font-semibold text-surface hover:bg-surface/10 hover:text-surface sm:w-auto">

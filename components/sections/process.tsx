@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion"
 import { CarSilhouette } from "@/components/logo/car-silhouette"
 
 const steps = [
@@ -13,13 +16,13 @@ const steps = [
   },
   {
     number: "03",
-    title: "Protocole en 8 étapes",
-    description: "Brossage mécanique, injection/extraction, traitement des vitres et finitions — rien n'est laissé au hasard.",
+    title: "Protocole de précision",
+    description: "Traitement technique adapté (brossage, injection/extraction) — chaque matériau reçoit le soin spécifique qu'il mérite.",
   },
   {
     number: "04",
-    title: "Inspection avec vous",
-    description: "Nous inspectons ensemble chaque recoin avant de partir. Votre accord, c'est notre signature.",
+    title: "Inspection finale",
+    description: "Nous validons ensemble le résultat. Votre satisfaction totale est notre seule exigence avant de quitter les lieux.",
   },
 ]
 
@@ -46,20 +49,46 @@ export function Process() {
         {/* Steps grid */}
         <div className="relative grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Connector Line (Desktop) */}
-          <div className="absolute left-0 top-8 hidden h-px w-full border-t border-dashed border-blue-primary/40 lg:block" aria-hidden="true" />
+          <div 
+            className="absolute left-0 top-8 hidden h-px w-full border-t border-dashed border-blue-primary/40 lg:block" 
+            style={{ filter: "drop-shadow(0 0 5px rgba(26, 86, 219, 0.5))" }}
+            aria-hidden="true" 
+          />
           
           {steps.map((step, index) => (
             <div key={index} className="group relative flex flex-col items-center text-center lg:items-start lg:text-left">
-              {/* Step number circle */}
-              <div className="relative mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-ink border-2 border-blue-primary transition-transform duration-300 group-hover:scale-110">
-                <span className="font-serif text-2xl font-bold text-blue-primary">
+              {/* Step number circle with Live Glow */}
+              <motion.div 
+                initial={{ boxShadow: "0 0 10px rgba(26, 86, 219, 0.3)" }}
+                animate={{ 
+                  boxShadow: [
+                    "0 0 10px rgba(26, 86, 219, 0.3)",
+                    "0 0 25px rgba(26, 86, 219, 0.6)",
+                    "0 0 10px rgba(26, 86, 219, 0.3)"
+                  ] 
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  delay: index * 0.5 
+                }}
+                className="relative mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-ink border-2 border-blue-primary transition-transform duration-300 group-hover:scale-110 z-10"
+              >
+                <span 
+                  className="font-serif text-2xl font-bold text-blue-primary"
+                  style={{ textShadow: "0 0 8px rgba(26, 86, 219, 0.5)" }}
+                >
                   {step.number}
                 </span>
                 {/* Mobile connector line */}
                 {index < steps.length - 1 && (
-                  <div className="absolute -bottom-12 left-1/2 h-12 w-px border-l border-dashed border-blue-primary/40 md:hidden" />
+                  <div 
+                    className="absolute -bottom-12 left-1/2 h-12 w-px border-l border-dashed border-blue-primary/40 md:hidden" 
+                    style={{ filter: "drop-shadow(0 0 3px rgba(26, 86, 219, 0.4))" }}
+                  />
                 )}
-              </div>
+              </motion.div>
               
               {/* Title */}
               <h3 className="mb-3 font-serif text-xl font-semibold text-surface">
@@ -77,3 +106,4 @@ export function Process() {
     </section>
   )
 }
+

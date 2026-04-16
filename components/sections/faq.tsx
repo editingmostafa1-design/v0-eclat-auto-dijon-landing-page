@@ -11,32 +11,32 @@ const faqs = [
   {
     question: "Combien de temps dure une prestation ?",
     answer:
-      "Tout dépend du service choisi. Un nettoyage premium intérieur prend environ 4 à 5 heures, tandis qu'une rénovation complète avec poli-lustrage peut nécessiter 2 à 3 jours de travail.",
+      "La durée varie selon le service : comptez 4 à 5 heures pour un intérieur complet de véhicule, et 1 à 2 heures pour un canapé ou des tapis, selon leur taille et leur état.",
   },
   {
     question: "Dois-je me déplacer ou venez-vous à domicile ?",
     answer:
-      "Pour garantir une qualité de finition optimale (température contrôlée, éclairage spécifique, séchage à l'abri), toutes nos prestations sont réalisées dans notre atelier spécialisé à Dijon.",
+      "Nous sommes 100% mobiles. Nous intervenons directement à votre domicile ou sur votre lieu de travail à Dijon et ses alentours. Nous sommes totalement autonomes en équipement.",
   },
   {
     question: "Comment réserver mon créneau ?",
     answer:
-      "Vous pouvez utiliser le formulaire en bas de page ou nous appeler directement. Nous vous proposerons les prochaines disponibilités sous 24h.",
+      "Le plus simple est d'utiliser le formulaire 'Réserver' en bas de page. Vous pouvez aussi nous appeler directement pour fixer un rendez-vous rapide.",
   },
   {
     question: "Puis-je annuler ou reporter mon rendez-vous ?",
     answer:
-      "Oui, vous pouvez modifier votre réservation sans frais jusqu'à 48h avant la prestation. Au-delà, l'acompte pourra être conservé.",
+      "Oui, sans aucun frais jusqu'à 24h avant l'intervention. Nous savons que les imprévus arrivent, un simple appel suffit pour décaler.",
   },
   {
-    question: "Vos produits sont-ils sans danger pour mes sièges en cuir ?",
+    question: "Vos produits sont-ils sans danger pour mes textiles ?",
     answer:
-      "Absolument. Nous utilisons des baumes et nettoyants PH-neutre spécifiques aux cuirs fins pour nettoyer sans assécher la matière.",
+      "Absolument. Nos formules sont PH-neutre et éco-responsables. Elles sont conçues pour nettoyer en profondeur tout en respectant la fragilité des cuirs, des tissus de canapés et des fibres de tapis.",
   },
   {
-    question: "Proposez-vous des forfaits pour les flottes d'entreprise ?",
+    question: "Intervenez-vous pour les professionnels ?",
     answer:
-      "Oui, nous avons des solutions adaptées pour les professionnels souhaitant maintenir l'image de marque de leurs véhicules de fonction. Contactez-nous pour un devis groupe.",
+      "Oui, nous entretenons les flottes de véhicules d'entreprise ainsi que le mobilier de bureau ou d'accueil. Contactez-nous pour un devis personnalisé.",
   },
 ]
 
