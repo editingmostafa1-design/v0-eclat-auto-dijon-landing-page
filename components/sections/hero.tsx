@@ -12,14 +12,14 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Text content */}
           <div className="flex flex-col gap-6">
-            <span className="kicker">Votre voiture, sans vous déplacer</span>
+            <span className="kicker !text-surface/60">Signature Excellence</span>
             <h1 className="font-serif text-4xl font-semibold leading-tight text-surface sm:text-5xl lg:text-6xl">
               <span className="text-balance">
                 {"L'"}<span className="text-shine">éclat</span>{" d'une voiture neuve, sans compromis."}
               </span>
             </h1>
             <p className="text-lg leading-relaxed text-surface/80 sm:text-xl">
-              {"Rénovation esthétique haut de gamme pour véhicules exigeants — à Dijon."}
+              {"Rénovation esthétique haut de gamme — À domicile, à Dijon."}
             </p>
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center">
               <a href="#reserver">

@@ -6,6 +6,7 @@ import { Guarantees } from "@/components/sections/guarantees"
 import { FAQ } from "@/components/sections/faq"
 import { FinalCTA } from "@/components/sections/final-cta"
 import { Footer } from "@/components/sections/footer"
+import { StickyCTA } from "@/components/ui/sticky-cta"
 
 export default function Home() {
   const jsonLd = {
@@ -50,6 +51,7 @@ export default function Home() {
         <FAQ />
         <FinalCTA />
       </main>
+      <StickyCTA />
       <Footer />
     </>
   )

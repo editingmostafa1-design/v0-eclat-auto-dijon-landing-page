@@ -17,8 +17,10 @@ export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
       
@@ -55,9 +57,12 @@ export function Nav() {
     setIsMobileMenuOpen(false)
   }
 
+  if (!mounted) return null // Avoid mismatch on initial load
+
   return (
     <>
       <header
+        suppressHydrationWarning
         className={cn(
           "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300 border-b",
           isScrolled
@@ -103,6 +108,7 @@ export function Nav() {
             <a 
               href="tel:+33768627902" 
               className="text-sm font-semibold text-surface transition-colors hover:text-blue-primary font-sans"
+              suppressHydrationWarning
             >
               07 68 62 79 02
             </a>

@@ -17,6 +17,7 @@
   --blue-focus: rgba(16, 52, 110, 0.25);
   --warm-gray: #D8D5CE;
   --near-black: #1A1A18;
+  --border-ultra: rgba(228, 226, 218, 0.3);
   
   /* Next.js Semantic Tokens */
   --background: #F9F8F5;
@@ -81,6 +82,11 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom Utilities */
+  --glass-bg: rgba(249, 248, 245, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(12px);
 }
 
 @layer base {
@@ -122,14 +128,25 @@
 }
 
 .kicker {
-  @apply text-sm font-semibold uppercase tracking-[0.15em] text-blue-primary;
+  @apply text-[10px] font-bold uppercase tracking-[0.3em] text-blue-primary font-mono;
 }
 
 .card-hover {
-  @apply transition-all duration-200 ease-out;
+  @apply transition-all duration-300 ease-out border-[0.5px];
 }
 .card-hover:hover {
-  @apply shadow-lg scale-[1.02];
+  @apply shadow-2xl shadow-blue-primary/5 -translate-y-1 border-blue-primary/30;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.mono-label {
+  @apply font-mono text-[11px] uppercase tracking-tighter text-muted-foreground;
 }
 
 /* Video/Background Overlays */

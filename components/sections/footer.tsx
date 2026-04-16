@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { EclatLogo } from "@/components/logo/concept-c-logo"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,6 +10,16 @@ export function Footer() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedService, setSelectedService] = useState("")
+
+  useEffect(() => {
+    const handleSelect = (e: any) => {
+      if (e.detail) {
+        setSelectedService(e.detail)
+      }
+    }
+    window.addEventListener('select-service', handleSelect)
+    return () => window.removeEventListener('select-service', handleSelect)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -59,7 +69,11 @@ export function Footer() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <form 
+                id="reserver-form"
+                onSubmit={handleSubmit} 
+                className="flex flex-col gap-3 scroll-mt-32"
+              >
                 <Input
                   type="text"
                   name="full_name"
