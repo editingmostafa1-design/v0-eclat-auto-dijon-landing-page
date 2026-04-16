@@ -73,7 +73,7 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning className={`${lora.variable} ${plusJakarta.variable} bg-background`}>
       <body suppressHydrationWarning className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <Analytics />
       </body>
     </html>
   )
