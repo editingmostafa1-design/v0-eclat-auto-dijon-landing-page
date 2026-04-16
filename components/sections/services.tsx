@@ -83,7 +83,7 @@ export function Services() {
   }
 
   return (
-    <section id="services" className={cn(
+    <section id="services" suppressHydrationWarning className={cn(
       "relative py-12 lg:py-24 transition-colors duration-700",
       selectedServiceId ? "bg-ink text-surface" : "bg-surface"
     )}>

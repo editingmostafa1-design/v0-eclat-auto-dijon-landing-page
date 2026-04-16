@@ -28,7 +28,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="comment-ca-marche" className="relative overflow-hidden bg-ink py-24 lg:py-32">
+    <section id="comment-ca-marche" suppressHydrationWarning className="relative overflow-hidden bg-ink py-24 lg:py-32">
       {/* Background watermark */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 w-[800px] -translate-x-1/2 -translate-y-1/2 opacity-100">
         <CarSilhouette color="#F9F8F5" opacity={0.08} />

@@ -7,7 +7,7 @@ import { DynamicHeroBackground } from "./dynamic-hero-background"
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] overflow-hidden pt-[68px]">
+    <section suppressHydrationWarning className="relative min-h-[90vh] overflow-hidden pt-[68px]">
       <DynamicHeroBackground />
 
       {/* Content */}

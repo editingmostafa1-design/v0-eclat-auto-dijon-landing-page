@@ -20,7 +20,7 @@ export function DynamicHeroBackground() {
   }, [])
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-near-black">
+    <div suppressHydrationWarning className="absolute inset-0 z-0 overflow-hidden bg-near-black">
       {/* Mesh Gradient Layers */}
       <div className="absolute inset-0 opacity-40">
         {/* Layer 1: Navy Primary */}

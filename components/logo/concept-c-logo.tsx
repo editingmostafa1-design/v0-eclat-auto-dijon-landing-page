@@ -11,6 +11,7 @@ export const EclatLogo = () => (
     viewBox="0 0 280 120"
     xmlns="http://www.w3.org/2000/svg"
     aria-label="Éclat Auto Dijon"
+    className="bg-transparent"
   >
     {/* Car body */}
     <path

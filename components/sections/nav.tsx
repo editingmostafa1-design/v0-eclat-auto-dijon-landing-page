@@ -65,10 +65,10 @@ export function Nav() {
       <header
         suppressHydrationWarning
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300 border-b",
+          "fixed top-0 left-0 right-0 z-50 h-[68px] transition-all duration-300",
           isScrolled
-            ? "bg-ink/95 backdrop-blur-md shadow-md border-white/10"
-            : "bg-transparent border-transparent"
+            ? "bg-ink/95 backdrop-blur-md"
+            : "bg-transparent"
         )}
       >
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 md:px-6">

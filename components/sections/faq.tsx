@@ -42,7 +42,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-surface py-24 lg:py-32">
+    <section id="faq" suppressHydrationWarning className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-4xl px-4 lg:px-6">
         {/* Section header */}
         <div className="mb-16 text-center">

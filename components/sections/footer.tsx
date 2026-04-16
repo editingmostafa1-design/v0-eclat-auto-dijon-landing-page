@@ -60,7 +60,7 @@ export function Footer() {
   }
 
   return (
-    <footer id="reserver" className="bg-ink py-16 lg:py-20">
+    <footer id="reserver" suppressHydrationWarning className="bg-ink py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <div className="grid gap-12 lg:grid-cols-3 lg:gap-8">
           {/* Column 1 (Mobile Order: 1) - Reservation form */}

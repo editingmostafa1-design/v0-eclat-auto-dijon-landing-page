@@ -30,7 +30,7 @@ const guarantees = [
 
 export function Guarantees() {
   return (
-    <section id="pourquoi-nous" className="bg-surface py-24 lg:py-32">
+    <section id="pourquoi-nous" suppressHydrationWarning className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
         {/* Section header */}
         <div className="mb-20 text-center">
