@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { CarSilhouette } from "@/components/logo/car-silhouette"
 
 const steps = [
@@ -57,25 +56,11 @@ export function Process() {
           
           {steps.map((step, index) => (
             <div key={index} className="group relative flex flex-col items-center text-center lg:items-start lg:text-left">
-              {/* Step number circle with Live Glow */}
-              <motion.div 
-                initial={{ boxShadow: "0 0 10px rgba(26, 86, 219, 0.3)" }}
-                animate={{ 
-                  boxShadow: [
-                    "0 0 10px rgba(26, 86, 219, 0.3)",
-                    "0 0 25px rgba(26, 86, 219, 0.6)",
-                    "0 0 10px rgba(26, 86, 219, 0.3)"
-                  ] 
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: index * 0.5 
-                }}
-                className="relative mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-ink border-2 border-blue-primary transition-transform duration-300 group-hover:scale-110 z-10"
+              {/* Step number circle — CSS Live Glow */}
+              <div
+                className="glow-pulse relative mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-ink border-2 border-blue-primary transition-transform duration-300 group-hover:scale-110 z-10"
               >
-                <span 
+                <span
                   className="font-serif text-2xl font-bold text-blue-primary"
                   style={{ textShadow: "0 0 8px rgba(26, 86, 219, 0.5)" }}
                 >
@@ -83,12 +68,12 @@ export function Process() {
                 </span>
                 {/* Mobile connector line */}
                 {index < steps.length - 1 && (
-                  <div 
-                    className="absolute -bottom-12 left-1/2 h-12 w-px border-l border-dashed border-blue-primary/40 md:hidden" 
+                  <div
+                    className="absolute -bottom-12 left-1/2 h-12 w-px border-l border-dashed border-blue-primary/40 md:hidden"
                     style={{ filter: "drop-shadow(0 0 3px rgba(26, 86, 219, 0.4))" }}
                   />
                 )}
-              </motion.div>
+              </div>
               
               {/* Title */}
               <h3 className="mb-3 font-serif text-xl font-semibold text-surface">

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { EclatLogo } from "@/components/logo/concept-c-logo"
@@ -74,18 +74,9 @@ export function Nav() {
         <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4 md:px-6">
           {/* Logo with Live Glow */}
           <a href="#" className="flex items-center shrink-0" aria-label="Éclat Auto Dijon - Accueil">
-            <motion.div
-              animate={{ 
-                filter: [
-                  "drop-shadow(0 0 2px rgba(26, 86, 219, 0))",
-                  "drop-shadow(0 0 8px rgba(26, 86, 219, 0.4))",
-                  "drop-shadow(0 0 2px rgba(26, 86, 219, 0))"
-                ] 
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="logo-shimmer">
               <EclatLogo />
-            </motion.div>
+            </div>
           </a>
 
           {/* Desktop Navigation */}

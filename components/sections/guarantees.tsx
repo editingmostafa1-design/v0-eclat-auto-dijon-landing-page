@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Leaf, Search, ShieldCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -46,21 +45,12 @@ export function Guarantees() {
         {/* Guarantees grid — 3 cards */}
         <div className="grid gap-6 sm:grid-cols-3">
           {guarantees.map((guarantee, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={guarantee.highlight ? { boxShadow: "0 0 15px rgba(26, 86, 219, 0.4)" } : {}}
-              animate={guarantee.highlight ? { 
-                boxShadow: [
-                  "0 0 15px rgba(26, 86, 219, 0.4)",
-                  "0 0 35px rgba(26, 86, 219, 0.7)",
-                  "0 0 15px rgba(26, 86, 219, 0.4)"
-                ] 
-              } : {}}
-              transition={guarantee.highlight ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
               className={cn(
                 "group relative flex flex-col items-center rounded-2xl p-8 text-center transition-all duration-300",
                 guarantee.highlight
-                  ? "bg-blue-primary text-surface shadow-xl shadow-blue-primary/30 scale-105 z-10"
+                  ? "aura-pulse bg-blue-primary text-surface scale-105 z-10"
                   : "bg-card border border-border hover:border-blue-primary/30 hover:shadow-lg"
               )}
             >
@@ -90,7 +80,7 @@ export function Guarantees() {
               )}>
                 {guarantee.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 

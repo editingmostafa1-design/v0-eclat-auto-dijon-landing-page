@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning className={`${lora.variable} ${plusJakarta.variable} bg-background`}>
+    <html lang="fr" translate="no" suppressHydrationWarning className={`${lora.variable} ${plusJakarta.variable} bg-background`}>
       <body suppressHydrationWarning className="font-sans antialiased">
         {children}
         <Analytics />

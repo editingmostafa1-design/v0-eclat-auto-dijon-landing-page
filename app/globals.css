@@ -212,3 +212,28 @@
   display: inline-block;
   font-weight: 700;
 }
+
+/* ── Live Glow Animations (CSS-native, zero JS cost) ──────────────────────── */
+
+/* Process step circles & CTA button pulse */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(26, 86, 219, 0.3); }
+  50%       { box-shadow: 0 0 25px rgba(26, 86, 219, 0.7); }
+}
+
+/* Guarantees highlighted card aura */
+@keyframes aura-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(26, 86, 219, 0.4), 0 20px 40px rgba(26, 86, 219, 0.15); }
+  50%       { box-shadow: 0 0 35px rgba(26, 86, 219, 0.8), 0 20px 60px rgba(26, 86, 219, 0.3); }
+}
+
+/* Logo drop-shadow shimmer */
+@keyframes logo-shimmer {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(26, 86, 219, 0)); }
+  50%       { filter: drop-shadow(0 0 8px rgba(26, 86, 219, 0.45)); }
+}
+
+.glow-pulse  { animation: glow-pulse  3s ease-in-out infinite; }
+.aura-pulse  { animation: aura-pulse  3s ease-in-out infinite; }
+.logo-shimmer { animation: logo-shimmer 4s ease-in-out infinite; }
+
