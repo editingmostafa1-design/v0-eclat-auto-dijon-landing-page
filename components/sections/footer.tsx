@@ -5,13 +5,21 @@ import { motion, useAnimation } from "framer-motion"
 import { EclatLogo } from "@/components/logo/concept-c-logo"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { MapPin, Phone, Mail, Check } from "lucide-react"
+import { Calendar as CalendarIcon, MapPin, Phone, Mail, Check } from "lucide-react"
+import { Calendar } from "@/components/ui/calendar"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 export function Footer() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedService, setSelectedService] = useState("")
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const controls = useAnimation()
+
+  const normalizedSelectedDate = selectedDate
+    ? `${selectedDate.getFullYear()}-${String(selectedDate.getMonth() + 1).padStart(2, "0")}-${String(selectedDate.getDate()).padStart(2, "0")}`
+    : ""
 
   useEffect(() => {
     const handleSelect = (e: any) => {
@@ -135,15 +143,38 @@ export function Footer() {
                 )}
 
                 <div className="grid grid-cols-2 gap-3">
-                  <Input
-                    type="text"
-                    name="date"
-                    placeholder="Date Souhaitée"
-                    onFocus={(e) => (e.target.type = "date")}
-                    onBlur={(e) => (e.target.type = "text")}
-                    required
-                    className="border-surface/20 bg-surface/5 text-surface placeholder:text-surface/40 focus:border-blue-primary focus:ring-blue-primary/25"
-                  />
+                  <input type="hidden" name="date" value={normalizedSelectedDate} required />
+                  <Popover open={isDatePickerOpen} onOpenChange={setIsDatePickerOpen}>
+                    <PopoverTrigger asChild>
+                      <button
+                        type="button"
+                        aria-label="Choisir une date"
+                        className="flex h-10 w-full items-center justify-between rounded-xl border border-surface/20 bg-surface/5 px-3 py-2 text-left text-sm text-surface transition-all focus:border-blue-primary focus:outline-none focus:ring-2 focus:ring-blue-primary/25"
+                      >
+                        <span className={selectedDate ? "text-surface" : "text-surface/40"}>
+                          {selectedDate
+                            ? selectedDate.toLocaleDateString("fr-FR")
+                            : "Date souhaitée"}
+                        </span>
+                        <CalendarIcon className="h-4 w-4 text-surface/60" />
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      align="start"
+                      className="w-auto border-surface/20 bg-ink p-0 text-surface"
+                    >
+                      <Calendar
+                        mode="single"
+                        selected={selectedDate}
+                        onSelect={(date) => {
+                          setSelectedDate(date)
+                          if (date) setIsDatePickerOpen(false)
+                        }}
+                        disabled={{ before: new Date(new Date().setHours(0, 0, 0, 0)) }}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
                   <select 
                     name="time_slot" 
                     required
