@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ConceptCLogo } from "@/components/logo/concept-c-logo"
+import { EclatLogo } from "@/components/logo/concept-c-logo"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { MapPin, Phone, Mail, Check } from "lucide-react"
@@ -182,7 +182,7 @@ export function Footer() {
 
           {/* Column 3 (Mobile Order: 3) - Logo & Branding */}
           <div className="order-3 flex flex-col gap-6 lg:order-1">
-            <ConceptCLogo variant="footer" className="text-surface" />
+            <EclatLogo />
             <p className="max-w-xs text-base leading-relaxed text-surface/60">
               L&apos;excellence du detailing automobile à Dijon. Redonner à votre véhicule son prestige originel.
             </p>

@@ -144,7 +144,7 @@ export function Nav() {
         >
           {/* Mobile Header */}
           <div className="flex h-[68px] items-center justify-between px-4">
-            <ConceptCLogo variant="nav" className="text-surface" />
+            <EclatLogo />
             <button
               type="button"
               className="flex h-10 w-10 items-center justify-center rounded-lg text-blue-primary"
